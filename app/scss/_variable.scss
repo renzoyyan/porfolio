@@ -1,0 +1,14 @@
+// VARIABLES
+$poppins: 'Poppins', sans-serif;
+
+$colors: (
+    primary: #161b40,
+    secondary: #EFA500,
+    tertiary: #F40085,
+    lighterBlue: #E1E5F8,
+    lightBluee: #B6B9D8
+);
+
+@function color($color-name){
+    @return map-get($colors, $color-name);
+}

@@ -1,0 +1,91 @@
+.header{
+    position: fixed;
+    width: 100%;
+    padding: 1.5rem 0;
+    z-index: 1;
+    
+
+    &.sticky{
+        background: #ffff;
+        transition: background 500ms ease-in-out;
+        box-shadow: 0 0.125rem 0.1875rem rgba(0, 0, 0, 0.15);
+    }
+
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo{
+        font-size: 1rem;
+        font-weight: bold;
+        color: color(secondary);
+    }
+    &__links{
+        // Grid
+        display: grid;
+        place-content: center;
+        
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: -100%;
+        padding: 10rem 0;
+        font-size: 1rem;
+        text-align: center;
+        background: #6A7297;
+        transition: left 500ms ease-in-out;
+        
+        @include breakpoint(medium){
+            all: unset;
+            font-size: 0.75rem;
+            
+        }
+        > a{
+            color: #fff;
+            &:not(:last-child){
+                margin-bottom: 2.5rem;
+
+                @include breakpoint(medium){
+                    margin-right: 2.5rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &.show{
+            left: 0;
+        }
+
+        
+    }
+
+    &__menu{
+        cursor: pointer;
+        z-index: 3;
+        > span{
+            width: 1.5625rem;
+            height: 0.125rem;
+            display: block;
+            background-color: #fff;
+
+            transform-origin: 0.25rem 0.0625rem;
+            transition: all 300ms ease-in-out;
+
+            &:not(:last-child){
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        &.toggle > span:nth-child(1){
+            transform: rotate(45deg);
+        }
+        &.toggle > span:nth-child(2){
+            opacity: 0;
+        }
+        &.toggle > span:nth-child(3){
+            transform: rotate(-45deg);
+        }
+    }
+}
